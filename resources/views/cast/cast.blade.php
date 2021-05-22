@@ -43,7 +43,10 @@
                             <td> {{$casts->nama}} </td>
                             <td> {{$casts->umur}} </td>
                             <td> {{$casts->bio}} </td>
-                            <td><a href="/cast/{{$casts->id}}" class="btn btn-info btn-sm"> Tampilkan </a></td>
+                            <td>
+                                <a href="/cast/{{$casts->id}}" class="btn btn-info btn-sm"> Tampilkan </a>
+                                <a href="/cast/{{$casts->id}}/edit" class="btn btn-default btn-sm"> Edit </a>
+                            </td>
                         </tr>
                     @empty
                         <tr>
