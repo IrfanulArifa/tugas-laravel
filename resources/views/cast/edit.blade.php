@@ -7,8 +7,9 @@
                     <h3 class="card-title">Edit Post No. {{$casts->id}}</h3>
             </div>
         </div>
-        <form role="form" action="/cast" method="POST">
+        <form role="form" action="/cast/{{$casts->id}}" method="POST">
             @csrf
+            @method('PUT')
             <div class="card-body">
                 <div class="form-group">
                     <label for="exampleInputEmail1">Nama</label>

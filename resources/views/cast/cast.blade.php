@@ -43,9 +43,14 @@
                             <td> {{$casts->nama}} </td>
                             <td> {{$casts->umur}} </td>
                             <td> {{$casts->bio}} </td>
-                            <td>
+                            <td style="display: flex">
                                 <a href="/cast/{{$casts->id}}" class="btn btn-info btn-sm"> Tampilkan </a>
                                 <a href="/cast/{{$casts->id}}/edit" class="btn btn-default btn-sm"> Edit </a>
+                                <form action="/cast/{{$casts->id}}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <input type="submit" value="delete" class="btn btn-danger btn-sm">
+                                </form>
                             </td>
                         </tr>
                     @empty

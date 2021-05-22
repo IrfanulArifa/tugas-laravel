@@ -39,4 +39,27 @@ class CastController extends Controller
         $casts = DB::table('cast')->where('id',$id)->first();
         return view('cast.edit', compact('casts'));
     }
+
+    public function update($id, Request $req){
+        $req -> validate([
+            'nama' => 'required',
+            'umur' => 'required',
+            'bio' => 'required'
+        ]);
+        $query = DB::table('cast')
+                    ->where('id',$id)
+                    ->update([
+                        'nama'=>$req['nama'],
+                        'umur'=>$req['umur'],
+                        'bio'=>$req['bio']
+                    ]);
+        return redirect('/cast')->with('success','Berhasil Update Post');
+    }
+
+    public function destroy($id){
+        $query = DB::table('cast')
+                    ->where('id',$id)
+                    ->delete();
+        return redirect('/cast')->with('success','Berhasil Delete Post');
+    }
 }
